@@ -727,7 +727,17 @@ footer {
     ----- 10. Contact Styles -----
     -------------------------------
 */
+#Add-Me {
+    padding: 5px 15px;
+    background: $base-color;
+    text-align: center;
 
+    h2 {
+        margin: 0 0 15px 0;
+        color: #fff;
+        font-weight: 500;
+    }
+}
 #contact {
     padding: 50px 15px;
     background: $base-color;
