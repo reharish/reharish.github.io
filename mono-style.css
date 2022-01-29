@@ -56,3 +56,8 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 } 
+
+h3
+{
+	text-align: center;
+}
