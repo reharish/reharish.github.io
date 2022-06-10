@@ -1,8 +1,7 @@
-// YEAR OF BIRTH
+ // YEAR OF BIRTH
 
-var today = new Date();
+ var today = new Date();
 
-var year = today.getFullYear();
+ var year = today.getFullYear();
 
-document.getElementById("YOB").innerHTML = year -1998;
-
+ document.getElementById("YOB").innerHTML = year - 1998;
