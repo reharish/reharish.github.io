@@ -1,0 +1,71 @@
+---
+// FunFacts.astro
+// Random facts generator with a terminal fortune-cookie command interface.
+---
+
+<section id="fun-facts" class="py-24 px-4 max-w-6xl mx-auto border-b border-border-muted bg-background">
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="flex items-center space-x-4">
+      <h2 class="text-3xl sm:text-4xl font-bold font-mono text-text-primary flex items-center gap-2">
+        <span class="text-accent">07.</span> Random Facts
+      </h2>
+      <div class="h-[1px] bg-border-muted flex-grow"></div>
+    </div>
+
+    <!-- Fortune console -->
+    <div class="max-w-xl mx-auto bg-surface border border-border-muted rounded-md overflow-hidden font-mono shadow-xl scanlines text-sm sm:text-base">
+      <!-- Window header -->
+      <div class="bg-background px-4 py-3 border-b border-border-muted flex items-center justify-between text-xs sm:text-sm text-text-secondary">
+        <span>exec: /usr/games/fortune</span>
+        <span class="text-success">[DONE]</span>
+      </div>
+
+      <!-- Fact display -->
+      <div class="p-8 min-h-28 flex items-center justify-center text-center text-text-primary italic leading-relaxed text-base sm:text-lg transition-opacity duration-150" id="fortune-output">
+        "I trust logs more than assumptions."
+      </div>
+
+      <!-- Command interface footer -->
+      <div class="bg-background/80 px-4 py-3 border-t border-border-muted flex items-center justify-between text-xs sm:text-sm">
+        <span class="text-[10px] sm:text-xs text-text-secondary">Hint: Click run to execute fortune again.</span>
+        <button id="fortune-btn" class="px-4 py-1.5 border border-success hover:bg-success hover:text-black text-success font-bold text-xs sm:text-sm rounded transition-all flex items-center gap-2 cursor-pointer">
+          <span>$</span>
+          <span>shuf -n 1</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const facts = [
+    "My average debugging session lasts longer than expected.",
+    "I trust logs more than assumptions.",
+    "I read protocol documentation for fun.",
+    "The solution is usually hidden in the layer you ignored.",
+    "A clean build on the first attempt is statistically suspicious.",
+    "There are 10 types of people: those who understand binary, and those who don't.",
+    "If it is not automated, it is broken; we just don't know it yet.",
+    "In theory, theory and practice are the same. In practice, they are not."
+  ];
+
+  const outputElement = document.getElementById('fortune-output');
+  const btn = document.getElementById('fortune-btn');
+
+  const displayRandomFact = () => {
+    if (!outputElement) return;
+    const randomIndex = Math.floor(Math.random() * facts.length);
+    const fact = facts[randomIndex];
+    
+    outputElement.style.opacity = '0';
+    setTimeout(() => {
+      outputElement.textContent = `"${fact}"`;
+      outputElement.style.opacity = '1';
+    }, 150);
+  };
+
+  displayRandomFact();
+
+  btn?.addEventListener('click', displayRandomFact);
+</script>

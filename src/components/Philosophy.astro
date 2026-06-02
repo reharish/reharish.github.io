@@ -1,0 +1,123 @@
+---
+// Philosophy.astro
+// Explains the "How I Learn" methodology using modular terminal/loop cards.
+---
+
+<section id="philosophy" class="py-24 px-4 max-w-6xl mx-auto border-b border-border-muted bg-background">
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="flex items-center space-x-4">
+      <h2 class="text-3xl sm:text-4xl font-bold font-mono text-text-primary flex items-center gap-2">
+        <span class="text-accent">02.</span> How I Learn
+      </h2>
+      <div class="h-[1px] bg-border-muted flex-grow"></div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Observe -->
+      <div class="border border-border-muted bg-surface rounded p-6 space-y-4 hover:border-accent hover:shadow-[0_0_15px_rgba(88,166,255,0.05)] transition-all group">
+        <div class="flex justify-between items-center">
+          <span class="font-mono text-xs sm:text-sm text-accent bg-accent/10 px-2.5 py-0.5 rounded">STEP_01</span>
+          <span class="text-xl">🔍</span>
+        </div>
+        <h3 class="text-xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">
+          01. Observe()
+        </h3>
+        <p class="text-base text-text-secondary leading-relaxed font-sans">
+          Monitor system states, profile execution times, and capture raw communication logs. I start by gathering telemetry before forming any diagnostic hypotheses.
+        </p>
+        <div class="font-mono text-xs text-text-secondary border-t border-border-muted/50 pt-2.5 bg-background/30 p-2.5 rounded">
+          <span class="text-success">$</span> tail -f /var/log/syslog
+        </div>
+      </div>
+
+      <!-- Card 2: Break -->
+      <div class="border border-border-muted bg-surface rounded p-6 space-y-4 hover:border-accent hover:shadow-[0_0_15px_rgba(88,166,255,0.05)] transition-all group">
+        <div class="flex justify-between items-center">
+          <span class="font-mono text-xs sm:text-sm text-accent bg-accent/10 px-2.5 py-0.5 rounded">STEP_02</span>
+          <span class="text-xl">💥</span>
+        </div>
+        <h3 class="text-xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">
+          02. Break()
+        </h3>
+        <p class="text-base text-text-secondary leading-relaxed font-sans">
+          Push software and hardware boundaries, inject faults, and test absolute limit parameters. Breaking systems is the quickest path to exposing hidden assumptions.
+        </p>
+        <div class="font-mono text-xs text-text-secondary border-t border-border-muted/50 pt-2.5 bg-background/30 p-2.5 rounded">
+          <span class="text-success">$</span> stress-ng --cpu 8 --io 4
+        </div>
+      </div>
+
+      <!-- Card 3: Understand -->
+      <div class="border border-border-muted bg-surface rounded p-6 space-y-4 hover:border-accent hover:shadow-[0_0_15px_rgba(88,166,255,0.05)] transition-all group">
+        <div class="flex justify-between items-center">
+          <span class="font-mono text-xs sm:text-sm text-accent bg-accent/10 px-2.5 py-0.5 rounded">STEP_03</span>
+          <span class="text-xl">🧠</span>
+        </div>
+        <h3 class="text-xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">
+          03. Understand()
+        </h3>
+        <p class="text-base text-text-secondary leading-relaxed font-sans">
+          Dig deep into process models, file descriptors, and raw source code. I reconstruct the problem from first principles until the anomaly makes sense.
+        </p>
+        <div class="font-mono text-xs text-text-secondary border-t border-border-muted/50 pt-2.5 bg-background/30 p-2.5 rounded">
+          <span class="text-success">$</span> man proc
+        </div>
+      </div>
+
+      <!-- Card 4: Automate -->
+      <div class="border border-border-muted bg-surface rounded p-6 space-y-4 hover:border-accent hover:shadow-[0_0_15px_rgba(88,166,255,0.05)] transition-all group">
+        <div class="flex justify-between items-center">
+          <span class="font-mono text-xs sm:text-sm text-accent bg-accent/10 px-2.5 py-0.5 rounded">STEP_04</span>
+          <span class="text-xl">⚙️</span>
+        </div>
+        <h3 class="text-xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">
+          04. Automate()
+        </h3>
+        <p class="text-base text-text-secondary leading-relaxed font-sans">
+          Eliminate redundant manual steps. If I have to do something more than twice, I build a custom shell script, Python routine, or robot framework suite to run it for me.
+        </p>
+        <div class="font-mono text-xs text-text-secondary border-t border-border-muted/50 pt-2.5 bg-background/30 p-2.5 rounded">
+          <span class="text-success">$</span> ./run_regression.py --suite=can_transceive
+        </div>
+      </div>
+
+      <!-- Card 5: Document -->
+      <div class="border border-border-muted bg-surface rounded p-6 space-y-4 hover:border-accent hover:shadow-[0_0_15px_rgba(88,166,255,0.05)] transition-all group">
+        <div class="flex justify-between items-center">
+          <span class="font-mono text-xs sm:text-sm text-accent bg-accent/10 px-2.5 py-0.5 rounded">STEP_05</span>
+          <span class="text-xl">📝</span>
+        </div>
+        <h3 class="text-xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">
+          05. Document()
+        </h3>
+        <p class="text-base text-text-secondary leading-relaxed font-sans">
+          Commit troubleshooting processes, firmware schemas, and scripting setups to markdown notes. I document so that my future self doesn't have to re-solve the same problems.
+        </p>
+        <div class="font-mono text-xs text-text-secondary border-t border-border-muted/50 pt-2.5 bg-background/30 p-2.5 rounded">
+          <span class="text-success">$</span> git commit -m "docs: trace socket structures"
+        </div>
+      </div>
+
+      <!-- Card 6: Repeat -->
+      <div class="border border-border-muted bg-surface rounded p-6 space-y-4 hover:border-accent hover:shadow-[0_0_15px_rgba(88,166,255,0.05)] transition-all group">
+        <div class="flex justify-between items-center">
+          <span class="font-mono text-xs sm:text-sm text-accent bg-accent/10 px-2.5 py-0.5 rounded">STEP_06</span>
+          <span class="text-xl">🔄</span>
+        </div>
+        <h3 class="text-xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">
+          06. Repeat()
+        </h3>
+        <p class="text-base text-text-secondary leading-relaxed font-sans">
+          Cycle back and apply validation learnings onto the next layer. Every optimization step uncovers new parameters, expanding the depth of systems understanding.
+        </p>
+        <div class="font-mono text-xs text-text-secondary border-t border-border-muted/50 pt-2.5 bg-background/30 p-2.5 rounded">
+          <span class="text-success">$</span> while true; do learn_systems; done
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

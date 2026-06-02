@@ -1,0 +1,218 @@
+---
+// Projects.astro
+// Featured projects grid displaying real GitHub repositories from reharish, whitehauler, and zilogic.
+---
+
+<section id="projects" class="py-24 px-4 max-w-6xl mx-auto border-b border-border-muted bg-background">
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="flex items-center space-x-4">
+      <h2 class="text-3xl sm:text-4xl font-bold font-mono text-text-primary flex items-center gap-2">
+        <span class="text-accent">03.</span> Featured Projects
+      </h2>
+      <div class="h-[1px] bg-border-muted flex-grow"></div>
+    </div>
+
+    <!-- Project List -->
+    <div class="space-y-16">
+      
+      <!-- Project 1: Zilogic Parrot (Featured with custom SVG diagram) -->
+      <div class="border border-border-muted bg-surface rounded-lg overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        <!-- Content Details -->
+        <div class="p-8 lg:col-span-6 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-accent">ZILOGIC SYSTEMS / SYSTEM VALIDATION</span>
+              <span class="w-2 h-2 rounded-full bg-success"></span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold font-mono text-text-primary">parrot</h3>
+            <p class="text-base text-text-secondary leading-relaxed font-sans">
+              An Embedded Test Automation Framework based on Robot Framework. Parrot facilitates automated verification of hardware interfaces, executing test runs over CAN Bus interfaces, serial channels, and UDS (Unified Diagnostic Services) modules.
+            </p>
+            <!-- Highlights -->
+            <div class="flex flex-wrap gap-2.5 pt-2">
+              <span class="px-2.5 py-1 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Robot Framework</span>
+              <span class="px-2.5 py-1 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Python</span>
+              <span class="px-2.5 py-1 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">CAN Bus</span>
+              <span class="px-2.5 py-1 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">UDS (ISO 14229)</span>
+              <span class="px-2.5 py-1 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Serial Protocol</span>
+            </div>
+          </div>
+          
+          <div class="text-xs font-mono text-text-secondary border-t border-border-muted/50 pt-4 flex items-center justify-between">
+            <a href="https://github.com/zilogic-systems/parrot" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline flex items-center gap-1">
+              <span>View Repository</span>
+              <span>-&gt;</span>
+            </a>
+            <span class="text-text-secondary hover:text-text-primary cursor-pointer select-none font-bold" id="toggle-parrot-diag">Hide Topology</span>
+          </div>
+        </div>
+
+        <!-- Parrot Architecture Diagram (6 Columns) -->
+        <div class="p-6 bg-[#0D1117] lg:col-span-6 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-[#30363D] transition-all duration-300 overflow-hidden" id="parrot-diag-container">
+          <div class="text-center mb-4">
+            <span class="font-mono text-[10px] uppercase text-[#8B949E] tracking-widest">// Parrot Framework Test Execution Loop</span>
+          </div>
+          
+          <!-- Flow SVG (Hardcoded Dark Palette for legibility) -->
+          <svg viewBox="0 0 420 200" class="w-full h-auto text-[#8B949E] fill-none stroke-[#30363D] stroke-[1.5]" xmlns="http://www.w3.org/2000/svg">
+            <!-- Host Runner block -->
+            <rect x="10" y="20" width="120" height="50" rx="4" fill="#161B22" stroke="#58A6FF" />
+            <text x="70" y="42" text-anchor="middle" font-family="monospace" font-size="10" fill="#58A6FF" font-weight="bold">RobotFramework</text>
+            <text x="70" y="58" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B949E">Test Suite (.robot)</text>
+            
+            <!-- Python API connector line -->
+            <path d="M130 45 L180 45" stroke="#58A6FF" stroke-dasharray="4,4" />
+            <polygon points="180,45 173,41 173,49" fill="#58A6FF" stroke="none" />
+            <text x="155" y="38" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B949E">Python</text>
+
+            <!-- Device/Bus Controller block -->
+            <rect x="180" y="20" width="110" height="50" rx="4" fill="#161B22" stroke="#30363D" />
+            <text x="235" y="42" text-anchor="middle" font-family="monospace" font-size="10" fill="#E6EDF3">Parrot Interface</text>
+            <text x="235" y="58" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B949E">SocketCAN / PySerial</text>
+            
+            <!-- Hardware Interface Connector -->
+            <path d="M290 45 L340 45" stroke="#39D353" />
+            <polygon points="340,45 333,41 333,49" fill="#39D353" stroke="none" />
+            <text x="315" y="38" text-anchor="middle" font-family="monospace" font-size="8" fill="#39D353">CAN/UDS/UART</text>
+
+            <!-- ECU Block -->
+            <rect x="340" y="20" width="70" height="50" rx="4" fill="#161B22" stroke="#39D353" />
+            <text x="375" y="42" text-anchor="middle" font-family="monospace" font-size="10" fill="#39D353" font-weight="bold">Target ECU</text>
+            <text x="375" y="58" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B949E">Tested Board</text>
+
+            <!-- Diagnostics feedback loop -->
+            <path d="M375 70 L375 130 L70 130 L70 70" stroke="#30363D" stroke-dasharray="3,3" />
+            <polygon points="70,70 66,77 74,77" fill="#30363D" stroke="none" />
+            <text x="222" y="122" text-anchor="middle" font-family="monospace" font-size="8" fill="#8B949E">Telemetry Feedback & Verification Report (.xml / .html)</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Grid layout for other projects (2 columns) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 2: robotframework-pyserial -->
+        <div class="border border-border-muted bg-surface rounded-lg p-6 flex flex-col justify-between hover:border-accent transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-accent">
+              <span>AUTOMATION LIBRARY</span>
+              <span>reharish / github</span>
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">robotframework-pyserial</h4>
+            <p class="text-base text-text-secondary leading-relaxed">
+              A custom library wrapper for Robot Framework to manage connection interfaces, write data payloads, and verify serial read cycles dynamically during automated hardware tests.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">RobotFramework</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Python</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">PySerial</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">UART</span>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-border-muted/30 mt-4 flex justify-between items-center">
+            <a href="https://github.com/reharish/robotframework-pyserial" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-accent hover:underline flex items-center gap-1">
+              <span>View Source</span>
+              <span>-&gt;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: lemon-ate -->
+        <div class="border border-border-muted bg-surface rounded-lg p-6 flex flex-col justify-between hover:border-accent transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-accent">
+              <span>CYBERSECURITY FRAMEWORK</span>
+              <span>whitehauler / github</span>
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">lemon-ate</h4>
+            <p class="text-base text-text-secondary leading-relaxed">
+              An Android Remote Administration Tool and penetration testing framework designed to generate APK payloads that launch persistent shell links over WAN and LAN.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Android Hacking</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Python</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Reverse Shell</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">WAN/LAN</span>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-border-muted/30 mt-4 flex justify-between items-center">
+            <a href="https://github.com/whitehauler/lemon-ate" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-accent hover:underline flex items-center gap-1">
+              <span>View Source</span>
+              <span>-&gt;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4: androidpwn -->
+        <div class="border border-border-muted bg-surface rounded-lg p-6 flex flex-col justify-between hover:border-accent transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-accent">
+              <span>SECURITY AUTOMATION</span>
+              <span>whitehauler / github</span>
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">androidpwn</h4>
+            <p class="text-base text-text-secondary leading-relaxed">
+              A command-line security auditing script designed to control, query, and download system information from connected Android terminals using ADB socket bindings.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Android</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">ADB</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Python</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Pen-testing</span>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-border-muted/30 mt-4 flex justify-between items-center">
+            <a href="https://github.com/whitehauler/androidpwn" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-accent hover:underline flex items-center gap-1">
+              <span>View Source</span>
+              <span>-&gt;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5: Brightness-Restore -->
+        <div class="border border-border-muted bg-surface rounded-lg p-6 flex flex-col justify-between hover:border-accent transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-accent">
+              <span>LINUX UTILITY</span>
+              <span>reharish / github</span>
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold font-mono text-text-primary group-hover:text-accent transition-colors">Brightness-Restore</h4>
+            <p class="text-base text-text-secondary leading-relaxed">
+              A light systemd daemon script written to restore backlights automatically on boot cycles for Xfce4 desktop sessions on distributions like Kali Linux and Ubuntu MATE.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Bash Script</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Linux Service</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Systemd</span>
+              <span class="px-2 py-0.5 bg-background border border-border-muted rounded text-xs font-mono text-text-secondary">Xfce4</span>
+            </div>
+          </div>
+          <div class="pt-6 border-t border-border-muted/30 mt-4 flex justify-between items-center">
+            <a href="https://github.com/reharish/Brightness-Restore" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-accent hover:underline flex items-center gap-1">
+              <span>View Source</span>
+              <span>-&gt;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-parrot-diag');
+  const diagContainer = document.getElementById('parrot-diag-container');
+
+  toggleBtn?.addEventListener('click', () => {
+    if (diagContainer?.classList.contains('hidden')) {
+      diagContainer.classList.remove('hidden');
+      toggleBtn.textContent = 'Hide Topology';
+    } else {
+      diagContainer?.classList.add('hidden');
+      toggleBtn.textContent = 'Show Topology';
+    }
+  });
+</script>
