@@ -1,0 +1,182 @@
+---
+// Resume.astro
+// Detailed interactive timeline representing the CV.
+---
+
+<section id="resume" class="py-24 px-4 max-w-6xl mx-auto border-b border-border-muted bg-background">
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="flex items-center space-x-4">
+      <h2 class="text-3xl sm:text-4xl font-bold font-mono text-text-primary flex items-center gap-2">
+        <span class="text-accent">06.</span> Professional Resume
+      </h2>
+      <div class="h-[1px] bg-border-muted flex-grow"></div>
+    </div>
+
+    <!-- Download CTA Banner -->
+    <div class="border border-border-muted bg-surface/50 rounded-lg p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center md:text-left">
+        <h3 class="text-lg sm:text-xl font-bold font-mono text-text-primary">Need a hard copy or detailed document?</h3>
+        <p class="text-sm text-text-secondary font-sans leading-relaxed max-w-xl">
+          Get the formatted PDF resume containing standard contact information, experience milestones, projects, skills, education, and credentials list.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-4 shrink-0 justify-center">
+        <a href="https://drive.google.com/file/d/15O9qdnNNVXtIXLJEpobCccmXRFZ5pQdb/view" target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-success text-background font-mono font-bold text-xs sm:text-sm rounded hover:bg-white hover:text-black transition-all shadow-[0_0_15px_rgba(57,211,83,0.2)]">
+          Download PDF Resume
+        </a>
+        <a href="https://drive.google.com/drive/folders/14AizA7DAC95vqPzkvZq5JfXg1uVk8F7d?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-5 py-3 border border-border-muted hover:border-accent hover:text-accent font-mono text-xs sm:text-sm rounded transition-all">
+          View Certificates Drive
+        </a>
+      </div>
+    </div>
+
+    <!-- Grid Layout: Experience (8 columns) & Skills/Certifications (4 columns) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 text-sm sm:text-base">
+      
+      <!-- Timeline column (8 columns) -->
+      <div class="lg:col-span-8 space-y-8">
+        <h3 class="text-xs sm:text-sm font-mono text-accent uppercase tracking-wider">// Work Experience</h3>
+        
+        <div class="border-l-2 border-border-muted pl-6 space-y-10 relative">
+          
+          <!-- Job 1: Zilogic Software Lead Automation -->
+          <div class="relative">
+            <!-- Timeline dot -->
+            <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-accent border-4 border-background"></span>
+            <div class="space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h4 class="text-lg font-bold font-mono text-text-primary">Software Engineer - Lead Automation</h4>
+                <span class="text-xs sm:text-sm font-mono text-accent">Jan 2024 - Present</span>
+              </div>
+              <p class="text-xs sm:text-sm font-mono text-text-secondary">Zilogic Systems</p>
+              <ul class="list-disc pl-4 text-sm sm:text-base text-text-secondary space-y-2 font-sans leading-relaxed">
+                <li>Lead the Automation Team in designing and implementing automation frameworks for embedded systems, enhancing testing efficiency and coverage.</li>
+                <li>Develop and deploy AI automation agents for real-time data processing and decision-making.</li>
+                <li>Fine-tune pre-trained AI models to optimize performance for specific embedded applications.</li>
+                <li>Implement YOLO-based object detection solutions on embedded platforms, improving real-time image processing capabilities.</li>
+                <li>Design and develop custom Python libraries for test frameworks (like RobotFramework) and AI Agents.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 2: Zilogic Linux SysAdmin -->
+          <div class="relative">
+            <!-- Timeline dot -->
+            <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-border-muted border-4 border-background"></span>
+            <div class="space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h4 class="text-lg font-bold font-mono text-text-primary">Systems Administrator - Linux</h4>
+                <span class="text-xs sm:text-sm font-mono text-text-secondary">Nov 2021 - Present</span>
+              </div>
+              <p class="text-xs sm:text-sm font-mono text-text-secondary">Zilogic Systems</p>
+              <ul class="list-disc pl-4 text-sm sm:text-base text-text-secondary space-y-2 font-sans leading-relaxed">
+                <li>Leading the efforts of the IT Administration.</li>
+                <li>Maintaining Linux machines, local configurations, and cloud servers.</li>
+                <li>Deployed GLPI server to cloud for assets tracking and tickets.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 3: Aptiv Automation Consultant -->
+          <div class="relative">
+            <!-- Timeline dot -->
+            <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-border-muted border-4 border-background"></span>
+            <div class="space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h4 class="text-lg font-bold font-mono text-text-primary">Automation Engineer - Consultant</h4>
+                <span class="text-xs sm:text-sm font-mono text-text-secondary">Feb 2024 - Jan 2025</span>
+              </div>
+              <p class="text-xs sm:text-sm font-mono text-text-secondary">Aptiv</p>
+              <ul class="list-disc pl-4 text-sm sm:text-base text-text-secondary space-y-2 font-sans leading-relaxed">
+                <li>Specialized in automating hardware functionalities such as WiFi, Bluetooth, CAN and Ethernet layers.</li>
+                <li>Wrote extensive test verification libraries using Python and RobotFramework.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 4: The Residency Systems Associate -->
+          <div class="relative">
+            <!-- Timeline dot -->
+            <span class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-border-muted border-4 border-background"></span>
+            <div class="space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h4 class="text-lg font-bold font-mono text-text-primary">Systems Associate</h4>
+                <span class="text-xs sm:text-sm font-mono text-text-secondary">Mar 2021 - Nov 2021</span>
+              </div>
+              <p class="text-xs sm:text-sm font-mono text-text-secondary">The Residency</p>
+              <ul class="list-disc pl-4 text-sm sm:text-base text-text-secondary space-y-2 font-sans leading-relaxed">
+                <li>Managed and maintained Active Directory server structures, NAS storage servers, and NVR security systems.</li>
+                <li>Administered LAN and WLAN networks (Ruckus devices) and configured WiFi credentials profiles.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right column (4 columns) -->
+      <div class="lg:col-span-4 space-y-8 font-mono text-xs sm:text-sm">
+        <!-- Education -->
+        <div class="space-y-4">
+          <h3 class="text-xs sm:text-sm font-mono text-accent uppercase tracking-wider">// Education</h3>
+          <div class="border border-border-muted bg-surface/30 p-5 rounded-md space-y-2">
+            <h4 class="font-bold text-text-primary text-sm sm:text-base">B.E. Electrical & Electronics Engineering</h4>
+            <p class="text-text-secondary">Kings College of Engineering</p>
+            <p class="text-xs text-accent">2015 - 2019</p>
+          </div>
+        </div>
+
+        <!-- Certifications List -->
+        <div class="space-y-4">
+          <h3 class="text-xs sm:text-sm font-mono text-accent uppercase tracking-wider">// Certifications</h3>
+          <div class="border border-border-muted bg-surface/30 p-5 rounded-md space-y-3.5 leading-relaxed font-sans">
+            <div class="flex justify-between items-start gap-1 font-mono">
+              <span class="text-text-primary font-bold text-xs sm:text-sm">Linux Essentials 2</span>
+              <span class="text-[9px] sm:text-xs text-text-secondary bg-surface border border-border-muted px-1.5 rounded uppercase">Cisco</span>
+            </div>
+            <div class="flex justify-between items-start gap-1 font-mono">
+              <span class="text-text-primary font-bold text-xs sm:text-sm">Introduction to Cybersecurity</span>
+              <span class="text-[9px] sm:text-xs text-text-secondary bg-surface border border-border-muted px-1.5 rounded uppercase">Cisco</span>
+            </div>
+            <div class="flex justify-between items-start gap-1 font-mono">
+              <span class="text-text-primary font-bold text-xs sm:text-sm">Amazon EC2 (Intro)</span>
+              <span class="text-[9px] sm:text-xs text-text-secondary bg-surface border border-border-muted px-1.5 rounded uppercase">AWS</span>
+            </div>
+            <div class="flex justify-between items-start gap-1 font-mono">
+              <span class="text-text-primary font-bold text-xs sm:text-sm">Computer Forensics AFF4</span>
+              <span class="text-[9px] sm:text-xs text-text-secondary bg-surface border border-border-muted px-1.5 rounded uppercase">AFF4</span>
+            </div>
+            <div class="flex justify-between items-start gap-1 font-mono">
+              <span class="text-text-primary font-bold text-xs sm:text-sm">PCAP: Python Essentials</span>
+              <span class="text-[9px] sm:text-xs text-text-secondary bg-surface border border-border-muted px-1.5 rounded uppercase">OpenEDG</span>
+            </div>
+            <div class="flex justify-between items-start gap-1 font-mono">
+              <span class="text-text-primary font-bold text-xs sm:text-sm">NSE 2 Network Security Associate</span>
+              <span class="text-[9px] sm:text-xs text-text-secondary bg-surface border border-border-muted px-1.5 rounded uppercase">Fortinet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Summary -->
+        <div class="space-y-4">
+          <h3 class="text-xs sm:text-sm font-mono text-accent uppercase tracking-wider">// Skills Overview</h3>
+          <div class="flex flex-wrap gap-2 text-xs sm:text-sm text-text-secondary">
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">Python</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">RobotFramework</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">Linux Admin</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">AI Agents</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">LangChain</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">Docker</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">Bash Scripting</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">Networking</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">CAN Bus</span>
+            <span class="px-2.5 py-1.5 bg-surface border border-border-muted rounded">Cybersecurity</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

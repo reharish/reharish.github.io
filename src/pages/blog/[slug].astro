@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = import.meta.glob('../../content/blog/*.md', { eager: true });
+  return Object.keys(posts).map(path => {
+    const slug = path.split('/').pop().replace('.md', '');
+    return {
+      params: { slug },
+      props: { post: posts[path] }
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
+
+// Format date
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<Layout title={`${frontmatter.title} | harish.dev`} description={frontmatter.description}>
+  <div class="max-w-3xl mx-auto px-4 py-16 font-sans">
+    
+    <!-- Breadcrumbs / Back button -->
+    <a href="/#blog" class="inline-flex items-center space-x-1.5 font-mono text-xs text-accent hover:text-text-primary transition-colors mb-8">
+      <span>&lt;-</span>
+      <span>cd ..</span>
+    </a>
+
+    <!-- Article Header -->
+    <header class="space-y-4 border-b border-border-muted pb-8 mb-10">
+      <div class="flex flex-wrap gap-2 text-xs font-mono">
+        {frontmatter.tags.map((tag: string) => (
+          <span class="px-2 py-0.5 bg-surface text-accent border border-border-muted rounded">{tag}</span>
+        ))}
+      </div>
+      <h1 class="text-3xl md:text-4xl font-extrabold font-mono text-text-primary tracking-tight leading-tight">
+        {frontmatter.title}
+      </h1>
+      <div class="flex items-center space-x-4 text-xs font-mono text-text-secondary">
+        <span>By {frontmatter.author}</span>
+        <span>•</span>
+        <time datetime={frontmatter.pubDate}>{formattedDate}</time>
+      </div>
+    </header>
+
+    <!-- Markdown Content Render -->
+    <article class="markdown-body font-sans text-[15px] leading-relaxed text-text-secondary space-y-6">
+      <Content />
+    </article>
+
+    <!-- Navigation Footer -->
+    <footer class="mt-16 pt-8 border-t border-border-muted flex justify-between items-center font-mono text-xs text-text-secondary">
+      <span>Device: tty1</span>
+      <a href="/#blog" class="text-accent hover:underline">return_to_index()</a>
+    </footer>
+  </div>
+</Layout>
+
+<style is:global>
+  /* Custom retro engineering markdown rules */
+  .markdown-body h2 {
+    font-family: var(--font-mono);
+    color: var(--color-text-primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border-muted);
+    padding-bottom: 0.4rem;
+  }
+  .markdown-body h3 {
+    font-family: var(--font-mono);
+    color: var(--color-text-primary);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .markdown-body p {
+    margin-bottom: 1.25rem;
+    color: var(--color-text-secondary);
+  }
+  .markdown-body strong {
+    color: var(--color-text-primary);
+  }
+  .markdown-body a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .markdown-body a:hover {
+    text-decoration: underline;
+  }
+  .markdown-body ul, .markdown-body ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    list-style-type: square;
+    color: var(--color-text-secondary);
+  }
+  .markdown-body li {
+    margin-bottom: 0.5rem;
+  }
+  .markdown-body code {
+    font-family: var(--font-mono);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-muted);
+    color: var(--color-accent);
+    padding: 0.15rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.85em;
+  }
+  .markdown-body pre {
+    background-color: #161b22;
+    border: 1px solid var(--color-border-muted);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+  .markdown-body pre code {
+    background-color: transparent;
+    border: none;
+    color: #e6edf3;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .markdown-body blockquote {
+    border-left: 3px solid var(--color-accent);
+    background-color: var(--color-surface);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+  }
+  .markdown-body blockquote p {
+    margin-bottom: 0;
+  }
+  .markdown-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+  }
+  .markdown-body th, .markdown-body td {
+    border: 1px solid var(--color-border-muted);
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+  }
+  .markdown-body th {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+  }
+  .markdown-body td {
+    color: var(--color-text-secondary);
+  }
+  .markdown-body tr:nth-child(even) {
+    background-color: rgba(22, 27, 34, 0.2);
+  }
+</style>

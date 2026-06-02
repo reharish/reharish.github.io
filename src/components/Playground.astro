@@ -1,0 +1,133 @@
+---
+// Playground.astro
+// Showcase of current learning paths, topics, and experimentation states.
+---
+
+<section id="playground" class="py-24 px-4 max-w-6xl mx-auto border-b border-border-muted bg-background">
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="flex items-center space-x-4">
+      <h2 class="text-3xl sm:text-4xl font-bold font-mono text-text-primary flex items-center gap-2">
+        <span class="text-accent">04.</span> Engineering Playground
+      </h2>
+      <div class="h-[1px] bg-border-muted flex-grow"></div>
+    </div>
+
+    <!-- Playground grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs sm:text-sm">
+      
+      <!-- Card 1: Robot Framework -->
+      <div class="border border-border-muted bg-surface/40 p-5 rounded hover:border-accent transition-all flex flex-col justify-between h-44">
+        <div>
+          <div class="flex justify-between items-start mb-2.5">
+            <span class="text-text-primary font-bold text-sm sm:text-base">Robot Framework</span>
+            <span class="px-2 py-0.5 rounded text-[9px] sm:text-xs bg-accent/10 border border-accent/20 text-accent uppercase font-bold">Building</span>
+          </div>
+          <p class="text-xs sm:text-sm text-text-secondary leading-relaxed font-sans">
+            Writing custom test libraries and listeners (like test-repeater) in Python.
+          </p>
+        </div>
+        <span class="text-xs text-accent/80 font-bold">&gt; import_library=RobotParrot</span>
+      </div>
+
+      <!-- Card 2: Serial Comm (PySerial) -->
+      <div class="border border-border-muted bg-surface/40 p-5 rounded hover:border-accent transition-all flex flex-col justify-between h-44">
+        <div>
+          <div class="flex justify-between items-start mb-2.5">
+            <span class="text-text-primary font-bold text-sm sm:text-base">PySerial UART</span>
+            <span class="px-2 py-0.5 rounded text-[9px] sm:text-xs bg-accent/10 border border-accent/20 text-accent uppercase font-bold">Building</span>
+          </div>
+          <p class="text-xs sm:text-sm text-text-secondary leading-relaxed font-sans">
+            Developing serial read/write handlers and terminal diagnostics tools.
+          </p>
+        </div>
+        <span class="text-xs text-accent/80 font-bold">&gt; device=/dev/ttyUSB0_115200</span>
+      </div>
+
+      <!-- Card 3: Cyber Security -->
+      <div class="border border-border-muted bg-surface/40 p-5 rounded hover:border-accent transition-all flex flex-col justify-between h-44">
+        <div>
+          <div class="flex justify-between items-start mb-2.5">
+            <span class="text-text-primary font-bold text-sm sm:text-base">Cybersecurity</span>
+            <span class="px-2 py-0.5 rounded text-[9px] sm:text-xs bg-success/10 border border-success/20 text-success uppercase font-bold">Experimenting</span>
+          </div>
+          <p class="text-xs sm:text-sm text-text-secondary leading-relaxed font-sans">
+            Conducting network pentesting, Android APK auditing, and CTF rooms.
+          </p>
+        </div>
+        <span class="text-xs text-success/80 font-bold">&gt; profile=tryhackme_whitedot</span>
+      </div>
+
+      <!-- Card 4: Linux Scripting -->
+      <div class="border border-border-muted bg-surface/40 p-5 rounded hover:border-accent transition-all flex flex-col justify-between h-44">
+        <div>
+          <div class="flex justify-between items-start mb-2.5">
+            <span class="text-text-primary font-bold text-sm sm:text-base">Linux Scripting</span>
+            <span class="px-2 py-0.5 rounded text-[9px] sm:text-xs bg-accent/10 border border-accent/20 text-accent uppercase font-bold">Building</span>
+          </div>
+          <p class="text-xs sm:text-sm text-text-secondary leading-relaxed font-sans">
+            Writing bash scripts, systemd service units, and automate system configurations.
+          </p>
+        </div>
+        <span class="text-xs text-accent/80 font-bold">&gt; run_job=brightness_restore.service</span>
+      </div>
+
+      <!-- Card 5: CAN Bus -->
+      <div class="border border-border-muted bg-surface/40 p-5 rounded hover:border-accent transition-all flex flex-col justify-between h-44">
+        <div>
+          <div class="flex justify-between items-start mb-2.5">
+            <span class="text-text-primary font-bold text-sm sm:text-base">CAN Bus</span>
+            <span class="px-2 py-0.5 rounded text-[9px] sm:text-xs bg-success/10 border border-success/20 text-success uppercase font-bold">Experimenting</span>
+          </div>
+          <p class="text-xs sm:text-sm text-text-secondary leading-relaxed font-sans">
+            Sniffing and analyzing raw CAN transceiver packets using socketcan utilities.
+          </p>
+        </div>
+        <span class="text-xs text-success/80 font-bold">&gt; interface=socketcan_can0</span>
+      </div>
+
+      <!-- Card 6: Android ADB -->
+      <div class="border border-border-muted bg-surface/40 p-5 rounded hover:border-accent transition-all flex flex-col justify-between h-44">
+        <div>
+          <div class="flex justify-between items-start mb-2.5">
+            <span class="text-text-primary font-bold text-sm sm:text-base">Android ADB</span>
+            <span class="px-2 py-0.5 rounded text-[9px] sm:text-xs bg-success/10 border border-success/20 text-success uppercase font-bold">Experimenting</span>
+          </div>
+          <p class="text-xs sm:text-sm text-text-secondary leading-relaxed font-sans">
+            Writing Python scripts to automate user tap inputs and dump system stats via ADB.
+          </p>
+        </div>
+        <span class="text-xs text-success/80 font-bold">&gt; target=android_pwn.py</span>
+      </div>
+
+      <!-- Card 7: DoIP / UDS -->
+      <div class="border border-border-muted bg-surface/40 p-5 rounded hover:border-accent transition-all flex flex-col justify-between h-44">
+        <div>
+          <div class="flex justify-between items-start mb-2.5">
+            <span class="text-text-primary font-bold text-sm sm:text-base">Diagnostics (DoIP)</span>
+            <span class="px-2 py-0.5 rounded text-[9px] sm:text-xs bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase font-bold">Learning</span>
+          </div>
+          <p class="text-xs sm:text-sm text-text-secondary leading-relaxed font-sans">
+            Studying diagnostics protocols over IP networks and hex payload formats.
+          </p>
+        </div>
+        <span class="text-xs text-amber-400/80 font-bold">&gt; protocol=uds_iso_14229</span>
+      </div>
+
+      <!-- Card 8: Home Lab -->
+      <div class="border border-border-muted bg-surface/40 p-5 rounded hover:border-accent transition-all flex flex-col justify-between h-44">
+        <div>
+          <div class="flex justify-between items-start mb-2.5">
+            <span class="text-text-primary font-bold text-sm sm:text-base">Home Lab</span>
+            <span class="px-2 py-0.5 rounded text-[9px] sm:text-xs bg-accent/10 border border-accent/20 text-accent uppercase font-bold">Building</span>
+          </div>
+          <p class="text-xs sm:text-sm text-text-secondary leading-relaxed font-sans">
+            Hosting local NAS storage networks, tracking IT assets via GLPI, and networking.
+          </p>
+        </div>
+        <span class="text-xs text-accent/80 font-bold">&gt; server=glpi_docker_v2</span>
+      </div>
+
+    </div>
+  </div>
+</section>

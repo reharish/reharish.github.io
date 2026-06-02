@@ -1,0 +1,126 @@
+---
+// About.astro
+// About section showcasing professional bio and a layered systems stack diagram.
+---
+
+<section id="about" class="py-24 px-4 max-w-6xl mx-auto border-b border-border-muted bg-background">
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="flex items-center space-x-4">
+      <h2 class="text-3xl sm:text-4xl font-bold font-mono text-text-primary flex items-center gap-2">
+        <span class="text-accent">01.</span> Who am I?
+      </h2>
+      <div class="h-[1px] bg-border-muted flex-grow"></div>
+    </div>
+
+    <!-- Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Biography Content (6 Columns) -->
+      <div class="lg:col-span-6 space-y-6 font-sans text-text-secondary text-base sm:text-lg leading-relaxed">
+        <p>
+          Hi, I'm <strong class="text-text-primary">Harishbabu Rengaraj</strong>.
+        </p>
+        <p>
+          I started with <span class="text-accent font-mono text-sm border border-accent/20 bg-accent/5 px-2 py-0.5 rounded">Electrical and Electronics Engineering</span> and ended up exploring embedded systems, Linux environments, networking, cybersecurity, test automation, and computer vision.
+        </p>
+        <p>
+          Professionally, I work in <strong class="text-text-primary">automotive validation and automation</strong>, leading test development teams to automate validation protocols for hardware connectivity layers such as WiFi, Bluetooth, CAN, and Ethernet.
+        </p>
+        <p>
+          Personally, I enjoy taking systems apart, understanding how they work at a microscopic level, and building tools that eliminate repetitive tasks.
+        </p>
+        <div class="p-5 border border-border-muted bg-surface/50 rounded-md font-mono text-sm sm:text-base text-success flex items-start space-x-3">
+          <span class="text-xl">💡</span>
+          <p class="leading-relaxed">
+            I believe every interesting problem becomes manageable once you understand the layers beneath it.
+          </p>
+        </div>
+      </div>
+
+      <!-- Layers Schema Diagram (6 Columns) -->
+      <div class="lg:col-span-6 space-y-4">
+        <div class="bg-surface border border-border-muted rounded-md p-6 space-y-4">
+          <h3 class="text-xs sm:text-sm font-mono text-accent uppercase tracking-wider">// System Abstraction Layers</h3>
+          <p class="text-xs sm:text-sm text-text-secondary font-sans leading-relaxed">
+            Click on a layer to inspect the toolchains I run at that depth:
+          </p>
+          
+          <div class="space-y-4 font-mono text-xs sm:text-sm" id="layers-stack-container">
+            <!-- Layer 1: App/Automation -->
+            <button class="w-full text-left p-4 border border-accent/20 bg-accent/5 rounded hover:bg-accent/10 hover:border-accent transition-all cursor-pointer block group" data-layer="app">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="font-bold text-accent group-hover:text-text-primary transition-colors">LAYER 3: APPLICATION & AUTO</span>
+                <span class="text-[10px] sm:text-xs text-text-secondary">OS User Space</span>
+              </div>
+              <p class="text-text-secondary text-xs leading-relaxed group-hover:text-text-primary transition-colors">
+                Python, Robot Framework, Bash Scripting, Selenium WebDriver, AI Automation Agents, OpenCV pipelines.
+              </p>
+            </button>
+
+            <!-- Layer 2: Operating System & Linux -->
+            <button class="w-full text-left p-4 border border-success/20 bg-success/5 rounded hover:bg-success/10 hover:border-success transition-all cursor-pointer block group" data-layer="os">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="font-bold text-success group-hover:text-text-primary transition-colors">LAYER 2: KERNEL & OPERATING SYSTEM</span>
+                <span class="text-[10px] sm:text-xs text-text-secondary">Sys Admin</span>
+              </div>
+              <p class="text-text-secondary text-xs leading-relaxed group-hover:text-text-primary transition-colors">
+                Linux Admin, Docker Containers, DHCP/SMB/NFS Networking, Active Directory, Firewalls, Cybersecurity.
+              </p>
+            </button>
+
+            <!-- Layer 3: Hardware & Protocols -->
+            <button class="w-full text-left p-4 border border-amber-500/20 bg-amber-500/5 rounded hover:bg-amber-500/10 hover:border-amber-500 transition-all cursor-pointer block group" data-layer="hardware">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="font-bold text-amber-400 group-hover:text-text-primary transition-colors">LAYER 1: HARDWARE & PROTOCOLS</span>
+                <span class="text-[10px] sm:text-xs text-text-secondary">Physical</span>
+              </div>
+              <p class="text-text-secondary text-xs leading-relaxed group-hover:text-text-primary transition-colors">
+                Serial (UART), CAN Bus, UDS (Unified Diagnostic Services), I2C, Raspberry Pi, and electrical circuits.
+              </p>
+            </button>
+          </div>
+
+          <!-- Dynamic Layer Details Console -->
+          <div class="bg-background border border-border-muted p-4 rounded text-xs sm:text-sm font-mono h-28 flex items-center justify-center text-center text-text-secondary" id="layer-details-console">
+            Select a layer above to run diagnostics check.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('#layers-stack-container button');
+  const consoleDisplay = document.getElementById('layer-details-console');
+
+  const layerInfo: Record<string, string> = {
+    app: "STATUS: ONLINE\n> Running Python testing suites.\n> RobotFramework keywords active.\n> OpenCV: RTSP pipeline frames: 30 FPS.",
+    os: "STATUS: SECURE\n> Linux kernel: 6.x.x-amd64\n> Docker: 12 containers running\n> Network: Active routing via DHCP/SMB.",
+    hardware: "STATUS: ESTABLISHED\n> Serial interface: 115200 baud\n> CAN Bus: Baudrate 500kbps\n> UDS: Diagnostic Session active."
+  };
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const layer = btn.getAttribute('data-layer');
+      if (!layer || !consoleDisplay) return;
+
+      consoleDisplay.classList.remove('text-center', 'text-text-secondary');
+      consoleDisplay.className = "bg-background border border-border-muted p-4 rounded text-xs sm:text-sm font-mono h-28 text-success overflow-y-auto whitespace-pre-line";
+      
+      const text = layerInfo[layer];
+      consoleDisplay.innerHTML = '';
+      
+      let i = 0;
+      const typeText = () => {
+        if (i < text.length) {
+          consoleDisplay.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typeText, 15);
+        }
+      };
+      
+      typeText();
+    });
+  });
+</script>
